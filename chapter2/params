@@ -1,0 +1,3 @@
+# first command line arg == $1, second is $2, etc
+printf "Hello %s\n" "$1"
+printf "Path to script is %s\n" "$0"

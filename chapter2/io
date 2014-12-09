@@ -1,0 +1,24 @@
+# File descriptors for streams
+# 0 stdin
+# 1 stdout
+# 2 stderr
+# /dev/null == bit bucket
+
+if [ "$1" = "stdout" ]
+then
+  # Instead of redirecting to file, redirect to stream
+  # using >&N where N is the file descriptor 
+  printf '%s\n%v\n' OK? Oops! 2>&1 
+elif [ "$1" = "files" ]
+then
+  printf '%s\n%v\n' OK? Oops! > FILE 2>ERRORFILE
+elif [ "$1" = "file" ]
+then
+  printf '%s\n%v\n' OK? Oops! > ALLOUTPUTFILE 2>&1 
+  # The following won't work
+  # printf '%s\n%v\n' OK? Oops! 2>&1 > ALLOUTPUTFILE 
+else
+  printf "Must provide either \"file\", \"files\" or \"stdout\" as first argument\n"
+  printf "\tio file\n" 
+fi
+
