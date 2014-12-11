@@ -1,0 +1,6 @@
+# Value of command stored in variable
+date=`date`
+printf "%s\n" "$date"
+# or
+date=$( date )
+printf "%s\n" "$date"
