@@ -1,0 +1,5 @@
+pre=:
+post=:
+# $@ = input params
+# "$@" prevents splitting on whitespace
+printf "$pre%s$post\n" "$@"
